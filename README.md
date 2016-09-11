@@ -18,9 +18,15 @@ Assertions helps you test things against _something_ within your tests, by defau
 usually provide an explicit result to test against as last argument:
 
 ```js
-import {component, reducer, saga} from 'injest/assertions';
+import {assert, component, reducer, saga} from 'injest/assertions';
 
 test('my test', () => {
+    // Testing something against a snapshot
+    assert(someFunction(argument));
+    
+    // Testing something against a result
+    assert(someFunction(argument), 'foobar');
+    
     // Testing a component against a snapshot
    component(<Icon />);
    
@@ -57,8 +63,9 @@ Tests are the same functions but wrapped in a way that let your write tests in a
 Underneath they call `test` with the provided description and then call the function above with the rest of the arguments.
 
 ```js
-import {component, reducer, saga} from 'injest/tests';
+import {assert, component, reducer, saga} from 'injest/tests';
 
+assert('can select something', getUser(state));
 component('can be rendered', <Icon />);
 reducer('can process some action', someReducer, stateBefore, {type: 'SOME_ACTION'});
 saga('can log user in', onLoggedIn());
