@@ -1,4 +1,4 @@
-# Injest
+# Injest [![Build Status](https://travis-ci.org/madewithlove/injest.svg?branch=master)](https://travis-ci.org/madewithlove/injest)
 
 Makes your Jest tests more digestible.
 
