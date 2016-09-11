@@ -2,7 +2,7 @@
   "name": "injest",
   "description": "Makes your Jest tests more digestible",
   "license": "MIT",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "dist/index.js",
   "repository": {
     "type": "git",
