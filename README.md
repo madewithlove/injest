@@ -78,3 +78,10 @@ reducer('can process multiple scenarios', assert => {
     assert(stateBefore, {type: 'BAR'});
 });
 ```
+
+## Testing
+
+```shell
+npm test
+npm run lint
+```
