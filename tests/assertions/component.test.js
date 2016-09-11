@@ -14,8 +14,8 @@ class RealComponent extends Component {
 }
 
 test('can assert stuff about component', () => {
-    const {tree, component} = assert(<RealComponent />);
+    const {tree, actual} = assert(<RealComponent />);
 
     tree.props.onClick();
-    assert(component);
+    assert(actual);
 });

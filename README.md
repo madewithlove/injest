@@ -24,6 +24,11 @@ test('my test', () => {
     // Testing a component against a snapshot
    component(<Icon />);
    
+   // Testing a component more in depth
+    const {tree, actual} = assert(<Icon />); // Assert initial output
+    tree.props.onClick();
+    assert(actual); // Trigger a prop and re-assert the output
+   
    // Testing a reducer against a snapshot
    reducer(someReducer, stateBefore, {type: 'SOME_ACTION'});
    

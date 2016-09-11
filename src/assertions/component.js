@@ -3,13 +3,13 @@ import renderer from 'react-test-renderer';
 /**
  * Assert that a component equals X
  */
-export default component => {
-    if (typeof component.toJSON === 'undefined') {
-        component = renderer.create(component);
+export default actual => {
+    if (typeof actual.toJSON === 'undefined') {
+        actual = renderer.create(actual);
     }
 
-    const tree = component.toJSON();
+    const tree = actual.toJSON();
     expect(tree).toMatchSnapshot();
 
-    return {component, tree};
+    return {actual, tree};
 };
