@@ -2,7 +2,7 @@
   "name": "dijest",
   "description": "Makes your Jest tests more digestible",
   "license": "MIT",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "main": "dist/index.js",
   "repository": {
     "type": "git",
