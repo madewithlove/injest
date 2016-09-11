@@ -55,7 +55,7 @@ Underneath they call `test` with the provided description and then call the func
 import {component, reducer, saga} from 'injest/tests';
 
 component('can be rendered', <Icon />);
-reducer(someReducer, 'can process some action', stateBefore, {type: 'SOME_ACTION'});
+reducer('can process some action', someReducer, stateBefore, {type: 'SOME_ACTION'});
 saga('can log user in', onLoggedIn());
 ```
 

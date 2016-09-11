@@ -3,8 +3,10 @@ import {reducer as assert} from '../assertions';
 /**
  * Test and snapshot a reducer
  */
-export default reducer = (description, ...args) => {
-    return test(description, () => assert(...args));
+export default (description, ...args) => {
+    test(description, () => {
+        assert(...args);
+    });
 };
 
 /**
@@ -16,9 +18,11 @@ export const reducerTestFactory = tested => {
         // pass the wrapped snapshot function to it
         if (typeof args[0] === 'function') {
             const asserter = (...assertionArgs) => assert(tested, ...assertionArgs);
-            return test(description, () => args[0](asserter));
+            test(description, () => args[0](asserter));
+
+            return;
         }
 
-        return test(description, () => assert(tested, ...args));
+        test(description, () => assert(tested, ...args));
     }
 };

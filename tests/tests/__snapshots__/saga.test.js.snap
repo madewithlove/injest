@@ -1,0 +1,10 @@
+exports[`test can test saga 1`] = `
+Array [
+  Object {
+    "done": false,
+    "value": Object {
+      "foo": "bar"
+    }
+  }
+]
+`;

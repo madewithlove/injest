@@ -3,7 +3,7 @@ import {fromJS} from 'immutable';
 /**
  * Assert that a reducer equals X
  */
-export default reducer = (actual, before, action = {}, after) => {
+export default (actual, before, action = {}, after) => {
     before = fromJS(before);
     const result = actual(before, action);
 

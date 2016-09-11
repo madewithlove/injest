@@ -1,0 +1,32 @@
+exports[`test can do multiple assertions 1`] = `
+Object {
+  "action": Object {
+    "type": "FOO"
+  },
+  "state": Object {
+    "foo": "bar"
+  }
+}
+`;
+
+exports[`test can test reducer 1`] = `
+Object {
+  "action": Object {
+    "type": "FOO"
+  },
+  "state": Object {
+    "foo": "bar"
+  }
+}
+`;
+
+exports[`test can test reducer with factory 1`] = `
+Object {
+  "action": Object {
+    "type": "FOO"
+  },
+  "state": Object {
+    "foo": "bar"
+  }
+}
+`;

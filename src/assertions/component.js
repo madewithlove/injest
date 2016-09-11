@@ -1,10 +1,15 @@
+import renderer from 'react-test-renderer';
+
 /**
  * Assert that a component equals X
  */
-export default component = actual => {
-    if (typeof actual.toJSON === 'undefined') {
-        actual = renderer.create(actual);
+export default component => {
+    if (typeof component.toJSON === 'undefined') {
+        component = renderer.create(component);
     }
 
-    expect(actual.toJSON()).toMatchSnapshot();
+    const tree = component.toJSON();
+    expect(tree).toMatchSnapshot();
+
+    return {component, tree};
 }

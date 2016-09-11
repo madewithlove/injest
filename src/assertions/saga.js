@@ -1,7 +1,7 @@
 /**
  * Assert that a saga equals X
  */
-export default saga = (actual, effects) => {
+export default (actual, effects) => {
     let result;
 
     // If we provided specific results to test against

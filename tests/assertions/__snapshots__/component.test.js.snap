@@ -1,0 +1,13 @@
+exports[`test can assert stuff about component 1`] = `
+<p
+  onClick={[Function onClick]}>
+  foo
+</p>
+`;
+
+exports[`test can assert stuff about component 2`] = `
+<p
+  onClick={[Function onClick]}>
+  bar
+</p>
+`;
