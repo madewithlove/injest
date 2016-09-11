@@ -12,4 +12,4 @@ export default component => {
     expect(tree).toMatchSnapshot();
 
     return {component, tree};
-}
+};

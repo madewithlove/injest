@@ -44,7 +44,15 @@
     "lint": "eslint src"
   },
   "eslintConfig": {
-    "extends": "madewithlove"
+    "extends": "madewithlove",
+    "rules": {
+      "no-magic-numbers": 0,
+      "valid-jsdoc": 0
+    },
+    "globals": {
+      "expect": false,
+      "test": false
+    }
   },
   "jest": {
     "testPathDirs": [

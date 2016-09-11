@@ -24,5 +24,5 @@ export const reducerTestFactory = tested => {
         }
 
         test(description, () => assert(tested, ...args));
-    }
+    };
 };

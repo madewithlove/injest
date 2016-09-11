@@ -8,6 +8,7 @@ export default (actual, effects) => {
     // use those instead of a snapshot
     if (typeof effects !== 'undefined') {
         let next = actual.next();
+
         return effects.forEach(effect => {
             expect(next.value).toEqual(effect.action);
             next = actual.next(effect.response);
@@ -24,4 +25,4 @@ export default (actual, effects) => {
     } while (!result.done);
 
     expect(actions).toMatchSnapshot();
-}
+};

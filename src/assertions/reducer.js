@@ -14,4 +14,4 @@ export default (actual, before, action = {}, after) => {
     }
 
     return expect(result).toMatchSnapshot();
-}
+};
