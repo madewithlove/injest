@@ -1,8 +1,8 @@
-import {saga as snap} from '../snapshots';
+import {saga as assert} from '../assertions';
 
 /**
  * Test and snapshot a saga
  */
 export default saga = (description, ...args) => {
-    return test(description, () => snap(...args));
+    return test(description, () => assert(...args));
 };
