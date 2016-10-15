@@ -3,8 +3,8 @@ Array [
   Object {
     "done": false,
     "value": Object {
-      "foo": "bar"
-    }
-  }
+      "foo": "bar",
+    },
+  },
 ]
 `;

@@ -27,12 +27,12 @@
     "babel-preset-react": "^6.11.1",
     "babel-preset-stage-0": "^6.5.0",
     "eslint": "^3.5.0",
-    "eslint-config-madewithlove": "^3.4.2",
-    "jest": "^15.1.1",
+    "eslint-config-madewithlove": "^4.0.1",
+    "jest": "^16.0.1",
     "react": "^15.3.1"
   },
   "peerDependencies": {
-    "jest": "^15.0"
+    "jest": "*"
   },
   "scripts": {
     "prebuild": "rm -rf dist",
