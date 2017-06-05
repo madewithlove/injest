@@ -1,4 +1,6 @@
-exports[`test can test saga 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`can test saga 1`] = `
 Array [
   Object {
     "done": false,

@@ -1,4 +1,6 @@
-exports[`test can do multiple assertions 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`can do multiple assertions 1`] = `
 Object {
   "action": Object {
     "type": "FOO",
@@ -9,7 +11,7 @@ Object {
 }
 `;
 
-exports[`test can test reducer 1`] = `
+exports[`can test reducer 1`] = `
 Object {
   "action": Object {
     "type": "FOO",
@@ -20,7 +22,7 @@ Object {
 }
 `;
 
-exports[`test can test reducer with factory 1`] = `
+exports[`can test reducer with factory 1`] = `
 Object {
   "action": Object {
     "type": "FOO",

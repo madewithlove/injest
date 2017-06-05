@@ -1,4 +1,7 @@
-exports[`test can test component 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`can test component 1`] = `
 <p
-  foo="bar" />
+  foo="bar"
+/>
 `;

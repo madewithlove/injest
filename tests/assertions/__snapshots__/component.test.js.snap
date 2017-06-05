@@ -1,13 +1,17 @@
-exports[`test can assert stuff about component 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`can assert stuff about component 1`] = `
 <p
-  onClick={[Function]}>
+  onClick={[Function]}
+>
   foo
 </p>
 `;
 
-exports[`test can assert stuff about component 2`] = `
+exports[`can assert stuff about component 2`] = `
 <p
-  onClick={[Function]}>
+  onClick={[Function]}
+>
   bar
 </p>
 `;

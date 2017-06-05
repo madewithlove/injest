@@ -1,1 +1,3 @@
-exports[`test it can test anything 1`] = `"foo"`;
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`it can test anything 1`] = `"foo"`;
