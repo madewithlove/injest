@@ -1,5 +1,5 @@
-import {component} from './index';
+import { component } from './index';
 
 it('can export correct modules', () => {
-   expect(component).not.toBeNull();
+    expect(component).not.toBeNull();
 });

@@ -1,7 +1,9 @@
-exports[`test can do multiple operations 1`] = `1`;
+// Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`test can do multiple operations 2`] = `-1`;
+exports[`can do multiple operations 1`] = `1`;
 
-exports[`test can do multiple operations 3`] = `-1`;
+exports[`can do multiple operations 2`] = `-1`;
 
-exports[`test can snapshot action 1`] = `1`;
+exports[`can do multiple operations 3`] = `-1`;
+
+exports[`can snapshot action 1`] = `1`;

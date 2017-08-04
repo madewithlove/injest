@@ -6,7 +6,7 @@ export default function reducer(description, tested, state, action, expected) {
             });
         });
     }
-    
+
     it(description, () => {
         const result = tested(state, action);
 

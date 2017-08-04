@@ -1,4 +1,6 @@
-exports[`test can pass component as function 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`can pass component as function 1`] = `
 <div>
   <p>
     foobar
@@ -6,13 +8,13 @@ exports[`test can pass component as function 1`] = `
 </div>
 `;
 
-exports[`test can receive wrapper 1`] = `
+exports[`can receive wrapper 1`] = `
 <p>
   foobar
 </p>
 `;
 
-exports[`test can write snapshot test 1`] = `
+exports[`can write snapshot test 1`] = `
 <div>
   <p>
     hello

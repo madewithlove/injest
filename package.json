@@ -18,20 +18,20 @@
     "email": "heroes@madewithlove.be"
   },
   "dependencies": {
-    "enzyme": "^2.8.2",
+    "enzyme": "^2.9.1",
     "enzyme-to-json": "^1.5.1",
     "immutable": "^3.8.1",
-    "react-test-renderer": "^15.3.1"
+    "react-test-renderer": "^15.6.1"
   },
   "devDependencies": {
     "babel-cli": "^6.14.0",
-    "babel-preset-env": "^1.5.1",
+    "babel-preset-env": "^1.6.0",
     "babel-preset-react": "^6.11.1",
     "babel-preset-stage-0": "^6.5.0",
-    "jest": "^16.0.1",
-    "prettier": "^1.4.2",
-    "react": "^15.3.1",
-    "react-dom": "^15.5.4"
+    "jest": "^20.0.4",
+    "prettier": "^1.5.3",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1"
   },
   "peerDependencies": {
     "jest": "*"
@@ -43,6 +43,6 @@
     "prepublish": "BABEL_ENV=production npm run build",
     "postversion": "git push; git push --tags; npm publish",
     "test": "jest",
-    "lint": "prettier src/**/*.js --write --tab-width 4 --single-quote --no-bracket-spacing --trailing-comma all --print-width 120"
+    "lint": "prettier 'src/**/*.js' --write --tab-width 4 --single-quote --trailing-comma all"
   }
 }
