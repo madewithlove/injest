@@ -1,2 +1,1 @@
-export * as assertions from './assertions';
-export * as tests from './tests';
+export {default as component} from './component';

@@ -1,0 +1,21 @@
+exports[`test can pass component as function 1`] = `
+<div>
+  <p>
+    foobar
+  </p>
+</div>
+`;
+
+exports[`test can receive wrapper 1`] = `
+<p>
+  foobar
+</p>
+`;
+
+exports[`test can write snapshot test 1`] = `
+<div>
+  <p>
+    hello
+  </p>
+</div>
+`;
