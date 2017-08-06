@@ -2,7 +2,7 @@ import { mount, render } from 'enzyme';
 import { matchesSnapshot } from './helpers/matchesSnapshot';
 import toEnzymeWrapper from './helpers/toEnzymeWrapper';
 
-export default function component(description, tested, callback) {
+export default function component(description, tested, callback?) {
     if (!tested) {
         return matchesSnapshot(toEnzymeWrapper(description));
     }

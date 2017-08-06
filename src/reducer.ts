@@ -1,4 +1,10 @@
-export default function reducer(description, tested, state, action, expected) {
+export default function reducer(
+    description,
+    tested,
+    state,
+    action,
+    expected?: any,
+) {
     if (typeof action === 'function') {
         it(description, () => {
             action((...args) => {

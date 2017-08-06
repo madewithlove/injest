@@ -18,6 +18,7 @@
     "email": "heroes@madewithlove.be"
   },
   "dependencies": {
+    "@types/jest": "^20.0.6",
     "enzyme": "^2.9.1",
     "enzyme-to-json": "^1.5.1",
     "immutable": "^3.8.1",
@@ -31,18 +32,30 @@
     "jest": "^20.0.4",
     "prettier": "^1.5.3",
     "react": "^15.6.1",
-    "react-dom": "^15.6.1"
+    "react-dom": "^15.6.1",
+    "ts-jest": "^20.0.9",
+    "typescript": "^2.4.2"
   },
   "peerDependencies": {
     "jest": "*"
   },
   "scripts": {
-    "prebuild": "rm -rf dist",
-    "build": "babel src -d dist",
+    "build": "rm -rf dist && tsc",
     "build:watch": "npm run build -- --watch",
-    "prepublish": "BABEL_ENV=production npm run build",
     "postversion": "git push; git push --tags; npm publish",
     "test": "jest",
-    "lint": "prettier 'src/**/*.js' --write --tab-width 4 --single-quote --trailing-comma all"
+    "lint": "prettier 'src/**/*.{ts,tsx}' --write --tab-width 4 --single-quote --trailing-comma all"
+  },
+  "jest": {
+    "transform": {
+      ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "json"
+    ]
   }
 }

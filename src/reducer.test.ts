@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import reducer from './reducer';
 
 const dummyReducer = (state = 0, { type }) => {

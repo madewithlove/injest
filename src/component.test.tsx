@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import component from './component';
 
 const DummyComponent = ({ text }) =>
