@@ -79,7 +79,6 @@ thisReducer('or even as such', wrapper => {
     wrapper({ type: 'INCREMENT' });
     wrapper({ type: 'INCREMENT' }, 1);
 });
-
 ```
 
 ### Assertions
