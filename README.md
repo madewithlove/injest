@@ -31,11 +31,10 @@ component(
         snapshot(wrapper.find('.some-div'));
 
         // Instance of Enzyme's mount wrapper
-        wrapper.click('button');
+        wrapper.find('button').simulate('click');
         snapshot(wrapper);
     },
 );
-
 ```
 
 ### Reducer helper
@@ -79,6 +78,33 @@ thisReducer('or even as such', wrapper => {
     wrapper({ type: 'INCREMENT' });
     wrapper({ type: 'INCREMENT' }, 1);
 });
+```
+
+### Saga helper
+
+```js
+import { put } from 'redux-saga/effects';
+import saga from './src/saga';
+
+function* dummySaga({ type }) {
+    yield `type: ${type}`;
+    yield put({ type });
+}
+
+const action = { type: 'INCREMENT' };
+
+saga('can snapshot saga for a given action', dummySaga, action);
+
+saga('can snapshot saga at various points', dummySaga, action, it => {
+    it
+        .will('yield some piece of text')
+        .then('a put action', put(action));
+});
+
+saga('can also snapshot against an array', dummySaga, action, [
+    'type: INCREMENT',
+    put(action),
+]);
 ```
 
 ### Assertions

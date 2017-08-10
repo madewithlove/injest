@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`can snapshot saga for a given action 1`] = `
+Array [
+  Object {
+    "done": false,
+    "value": "type: INCREMENT",
+  },
+  Object {
+    "done": false,
+    "value": Object {
+      "@@redux-saga/IO": true,
+      "PUT": Object {
+        "action": Object {
+          "type": "INCREMENT",
+        },
+        "channel": null,
+      },
+    },
+  },
+]
+`;
+
+exports[`yield some piece of text 1`] = `
+Object {
+  "done": false,
+  "value": "type: INCREMENT",
+}
+`;

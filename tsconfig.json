@@ -1,6 +1,6 @@
 {
   "include": ["src"],
-  "exclude": ["src/**/*.test.*"],
+  "exclude": ["src/__dummies__", "src/**/*.test.*"],
   "compilerOptions": {
     "rootDir": "./src",
     "outDir": "./dist",

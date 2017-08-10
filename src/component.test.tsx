@@ -12,7 +12,7 @@ component(
         snapshot(wrapper.find('.some-div'));
 
         // Instance of Enzyme's mount wrapper
-        wrapper.click('button');
+        wrapper.find('button').simulate('click');
         snapshot(wrapper);
     },
 );

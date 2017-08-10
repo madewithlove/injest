@@ -1,23 +1,52 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`can pass component as function 1`] = `
+exports[`can accept a component factory if you're lazy 1`] = `
 <div>
-  <p>
-    foobar
-  </p>
-</div>
-`;
-
-exports[`can receive wrapper 1`] = `
-<p>
-  foobar
-</p>
-`;
-
-exports[`can write snapshot test 1`] = `
-<div>
-  <p>
+  <div
+    class="some-div"
+  >
     hello
-  </p>
+  </div>
+  <button>
+    foobar
+  </button>
 </div>
+`;
+
+exports[`can create snapshots easily 1`] = `
+<div>
+  <div
+    class="some-div"
+  >
+    hello
+  </div>
+  <button>
+    bar
+  </button>
+</div>
+`;
+
+exports[`provides access to the Enzyme wrapper if need be 1`] = `
+<div
+  className="some-div"
+>
+  hello
+</div>
+`;
+
+exports[`provides access to the Enzyme wrapper if need be 2`] = `
+<DummyComponent
+  text="bar"
+>
+  <div>
+    <div
+      className="some-div"
+    >
+      hello
+    </div>
+    <button>
+      bar
+    </button>
+  </div>
+</DummyComponent>
 `;

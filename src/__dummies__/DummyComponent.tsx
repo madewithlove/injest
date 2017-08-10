@@ -2,9 +2,10 @@ import * as React from 'react';
 
 const DummyComponent: React.SFC<{ text?: string }> = ({ text }) =>
     <div>
-        <p>
+        <div className="some-div">hello</div>
+        <button>
             {text || 'foobar'}
-        </p>
+        </button>
     </div>;
 
 export default DummyComponent;

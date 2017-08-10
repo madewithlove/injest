@@ -3,9 +3,14 @@
 exports[`can snapshot a wrapper 1`] = `
 <DummyComponent>
   <div>
-    <p>
+    <div
+      className="some-div"
+    >
+      hello
+    </div>
+    <button>
       foobar
-    </p>
+    </button>
   </div>
 </DummyComponent>
 `;
