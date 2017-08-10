@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`can snapshot a wrapper 1`] = `
+<DummyComponent>
+  <div>
+    <p>
+      foobar
+    </p>
+  </div>
+</DummyComponent>
+`;

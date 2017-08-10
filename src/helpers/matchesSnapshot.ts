@@ -1,5 +1,5 @@
 import toJson from 'enzyme-to-json';
 
-export function matchesSnapshot(wrapper) {
+export default function matchesSnapshot(wrapper) {
     expect(toJson(wrapper)).toMatchSnapshot();
 }

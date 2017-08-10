@@ -1,8 +1,12 @@
-import * as React from 'react';
 import { mount, render } from 'enzyme';
-import { matchesSnapshot } from './helpers/matchesSnapshot';
+import matchesSnapshot from './helpers/matchesSnapshot';
 import toEnzymeWrapper from './helpers/toEnzymeWrapper';
-import { ReactElement } from 'react';
+import { ComponentClass, ReactElement, StatelessComponent } from 'react';
+
+export type ComponentFactory =
+    | ReactElement<any>
+    | StatelessComponent
+    | ComponentClass;
 
 export type ComponentCallback = (
     wrapper: any,
@@ -10,13 +14,13 @@ export type ComponentCallback = (
 ) => void;
 
 export default function component(
-    description: string | ReactElement<any>,
-    tested: ReactElement<any>,
+    description: string | ComponentFactory,
+    tested: ComponentFactory,
     callback?: ComponentCallback,
 ) {
     if (!tested) {
         return matchesSnapshot(
-            toEnzymeWrapper(description as ReactElement<any>),
+            toEnzymeWrapper(description as ComponentFactory),
         );
     }
 

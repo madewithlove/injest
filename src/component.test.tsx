@@ -1,15 +1,18 @@
 import * as React from 'react';
 import component from './component';
+import DummyComponent from './__dummies__/DummyComponent';
 
-const DummyComponent = ({ text }) =>
-    <div>
-        <p>
-            {text || 'foobar'}
-        </p>
-    </div>;
+component('can create snapshots easily', <DummyComponent text="bar" />);
+component("can accept a component factory if you're lazy", DummyComponent);
+component(
+    'provides access to the Enzyme wrapper if need be',
+    <DummyComponent text="bar" />,
+    (wrapper, snapshot) => {
+        // You can snapshot the wrapper at any type
+        snapshot(wrapper.find('.some-div'));
 
-component('can write snapshot test', <DummyComponent text="hello" />);
-component('can pass component as function', DummyComponent);
-component('can receive wrapper', DummyComponent, (wrapper, snapshot) => {
-    snapshot(wrapper.find('p'));
-});
+        // Instance of Enzyme's mount wrapper
+        wrapper.click('button');
+        snapshot(wrapper);
+    },
+);
