@@ -4,13 +4,58 @@ Makes your Jest tests more digestible.
 
 ## Installation
 
-```shell
+```bash
 npm i jest injest --save-dev
+# Or
+yarn add injest --dev
 ```
 
 ## Usage
 
-Injest provides various helpers to write smaller and quickers tests for your application. Helpers come in two flavors: snapshots and tests.
+Injest provides various helpers to write smaller and quickers tests for your application.
+
+### Component helper
+
+```js
+import {component, reducer} from 'injest';
+import Component from './Component';
+
+component('can create snapshots easily', <Component foo="bar" />);
+component('can accept a component factory if you\'re lazy', Component);
+component('provides access to the Enzyme wrapper if need be', <Component foo="bar" />, (wrapper, snapshot) => {
+    // You can snapshot the wrapper at any type
+    snapshot(wrapper.find('.some-div'));
+    
+    // Instance of Enzyme's mount wrapper
+    wrapper.click('button');
+    snapshot(wrapper);
+});
+```
+
+### Reducer helper
+
+```js
+import {component, reducer} from 'injest';
+import someReducer from './someReducer';
+
+const initialState = 0;
+
+reducer('can snapshot the result of an action', someReducer, initialState, {type: 'INCREMENT'});
+reducer('can also assert against a specific result', someReducer, initialState, {type: 'INCREMENT'}, 1);
+reducer('can do multiple of these for a given reducer', someReducer, initialState, wrapper => {
+    wrapper({type: 'INCREMENT'}); // Assert result equals snapshot
+    wrapper({type: 'INCREMENT'}, 1); // Assert result equals given value
+});
+
+const thisReducer = reducer('can return a shortcut factory with few arguments', someReducer, initialState);
+
+someReducer('which can then be used as such', {type: 'INCREMENT'});
+someReducer('or as such', {type: 'INCREMENT'}, 1);
+someReducer('or even as such', wrapper => {
+    wrapper({type: 'INCREMENT'});
+    wrapper({type: 'INCREMENT'}, 1);
+});
+```
 
 ### Assertions
 
@@ -54,35 +99,6 @@ test('my test', () => {
            action: put(isLoggedIn()),
        }
    ])
-});
-```
-
-### Tests
-
-Tests are the same functions but wrapped in a way that let your write tests in a smaller and cleaner manner.
-Underneath they call `test` with the provided description and then call the function above with the rest of the arguments.
-
-```js
-import {assert, component, reducer, saga} from 'injest/tests';
-
-assert('can select something', getUser(state));
-component('can be rendered', <Icon />);
-reducer('can process some action', someReducer, stateBefore, {type: 'SOME_ACTION'});
-saga('can log user in', onLoggedIn());
-```
-
-As reducers usually have a lot of tests and repeatedly passing the reducer could be cumbersome, a reducer test factory is provided:
- 
-```js
-import {reducerTestFactory} from 'injest/tests';
-
-const reducer = reducerTestFactory(myReducer);
-
-reducer('can process foo', stateBefore, {type: 'FOO'});
-reducer('can process bar', stateBefore, {type: 'BAR'});
-reducer('can process multiple scenarios', assert => {
-    assert(stateBefore, {type: 'FOO'}, stateAfter);
-    assert(stateBefore, {type: 'BAR'});
 });
 ```
 
