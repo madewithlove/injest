@@ -107,54 +107,9 @@ saga('can also snapshot against an array', dummySaga, action, [
 ]);
 ```
 
-### Assertions
-
-Assertions helps you test things against _something_ within your tests, by default a Jest snapshot but you can
-usually provide an explicit result to test against as last argument:
-
-```js
-import {assert, component, reducer, saga} from 'injest/assertions';
-
-test('my test', () => {
-    // Testing something against a snapshot
-    assert(someFunction(argument));
-    
-    // Testing something against a result
-    assert(someFunction(argument), 'foobar');
-    
-    // Testing a component against a snapshot
-   component(<Icon />);
-   
-   // Testing a component more in depth
-    const {tree, actual} = assert(<Icon />); // Assert initial output
-    tree.props.onClick();
-    assert(actual); // Trigger a prop and re-assert the output
-   
-   // Testing a reducer against a snapshot
-   reducer(someReducer, stateBefore, {type: 'SOME_ACTION'});
-   
-   // Testing a reducer against a result
-   reducer(someReducer, stateBefore, {type: 'SOME_ACTION'}, stateAfter);
-   
-   // Testing a saga against a snapshot
-   saga(onLoggedIn({id: 1}))
-   
-   // Testing a saga against a result
-   saga(onLoggedIn({id: 1}), [
-       {
-           action: call(::UserManager.login, 1),
-           response: {...dummyUser},
-       },
-       {
-           action: put(isLoggedIn()),
-       }
-   ])
-});
-```
-
 ## Testing
 
 ```shell
-npm test
-npm run lint
+yarn test
+yarn lint
 ```
