@@ -12,19 +12,18 @@ export type ReducerWrapper = (
     expected?: any,
 ) => void;
 
+export function reducerTester(tested: Reducer<any>, state: any): ReducerWrapper {
+    return (newDescription, dispatcher, expected) =>
+        reducer(newDescription, tested, state, dispatcher, expected);
+}
+
 export default function reducer(
     description: string,
     tested: Reducer<any>,
     state: any,
     dispatcher?: Dispatcher,
     expected?: any,
-): ReducerWrapper {
-    // If we passed no dispatcher, return a factory
-    if (typeof dispatcher === 'undefined') {
-        return (newDescription, dispatcher, expected) =>
-            reducer(newDescription, tested, state, dispatcher, expected);
-    }
-
+): void {
     // If we passed a callback, provide the wrapper to it
     if (typeof dispatcher === 'function') {
         it(description, () => {

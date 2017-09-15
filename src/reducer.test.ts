@@ -1,4 +1,4 @@
-import reducer from './reducer';
+import reducer, {reducerTester} from './reducer';
 import someReducer from './__dummies__/dummyReducer';
 
 const initialState = 0;
@@ -25,15 +25,12 @@ reducer(
     },
 );
 
-const thisReducer = reducer(
-    'can return a shortcut factory with few arguments',
-    someReducer,
-    initialState,
-);
+// You can also create a shortcut factory
+const countReducer = reducerTester(someReducer, initialState);
 
-thisReducer('which can then be used as such', { type: 'INCREMENT' });
-thisReducer('or as such', { type: 'INCREMENT' }, 1);
-thisReducer('or even as such', wrapper => {
+countReducer('which can then be used as such', { type: 'INCREMENT' });
+countReducer('or as such', { type: 'INCREMENT' }, 1);
+countReducer('or even as such', wrapper => {
     wrapper({ type: 'INCREMENT' });
     wrapper({ type: 'INCREMENT' }, 1);
 });
