@@ -6,6 +6,7 @@ const initialState = 0;
 reducer('can snapshot the result of an action', someReducer, initialState, {
     type: 'INCREMENT',
 });
+
 reducer(
     'can also assert against a specific result',
     someReducer,
@@ -13,6 +14,7 @@ reducer(
     { type: 'INCREMENT' },
     1,
 );
+
 reducer(
     'can do multiple of these for a given reducer',
     someReducer,
