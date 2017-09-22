@@ -2,6 +2,7 @@ import { mount, render } from 'enzyme';
 import matchesSnapshot from './helpers/matchesSnapshot';
 import toEnzymeWrapper from './helpers/toEnzymeWrapper';
 import { ComponentClass, ReactElement, StatelessComponent } from 'react';
+import withJestOptions, { JestOptions } from './helpers/withJestOptions';
 
 export type ComponentFactory =
     | ReactElement<any>
@@ -13,10 +14,11 @@ export type ComponentCallback = (
     matchesSnapshot: Function,
 ) => void;
 
-export default function component(
+function component(
     description: string | ComponentFactory,
     tested: ComponentFactory,
     callback?: ComponentCallback,
+    tester?: jest.It,
 ) {
     if (!tested) {
         return matchesSnapshot(
@@ -24,7 +26,8 @@ export default function component(
         );
     }
 
-    it(description as string, () => {
+    tester = tester || it;
+    tester(description as string, () => {
         const wrapper = toEnzymeWrapper(tested, callback ? mount : render);
         if (callback) {
             callback(wrapper, matchesSnapshot);
@@ -33,3 +36,5 @@ export default function component(
         }
     });
 }
+
+export default withJestOptions(component);

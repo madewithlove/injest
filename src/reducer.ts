@@ -1,4 +1,6 @@
 import { AnyAction, Reducer } from 'redux';
+import assert, { default as describeAssertion } from './helpers/assert';
+import withJestOptions from './helpers/withJestOptions';
 
 export type Dispatcher = AnyAction | ReducerCallback | null;
 
@@ -12,12 +14,15 @@ export type ReducerWrapper = (
     expected?: any,
 ) => void;
 
-export function reducerTester(tested: Reducer<any>, state: any): ReducerWrapper {
+export function reducerTester(
+    tested: Reducer<any>,
+    state: any,
+): ReducerWrapper {
     return (newDescription, dispatcher, expected) =>
         reducer(newDescription, tested, state, dispatcher, expected);
 }
 
-export default function reducer(
+function reducer(
     description: string,
     tested: Reducer<any>,
     state: any,
@@ -33,13 +38,11 @@ export default function reducer(
         });
     }
 
-    it(description, () => {
-        const result = tested(state, dispatcher as AnyAction);
-
-        if (typeof expected !== 'undefined') {
-            expect(result).toEqual(expected);
-        } else {
-            expect(result).toMatchSnapshot();
-        }
-    });
+    describeAssertion(
+        description,
+        tested(state, dispatcher as AnyAction),
+        expected,
+    );
 }
+
+export default withJestOptions(reducer);

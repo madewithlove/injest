@@ -16,3 +16,14 @@ component(
         snapshot(wrapper);
     },
 );
+
+let foobar = true;
+component.skip(
+    'can set Jest options through modifiers',
+    <DummyComponent text="bar" />,
+    () => {
+        foobar = false;
+    },
+);
+
+expect(foobar).toBe(true);
