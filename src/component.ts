@@ -17,7 +17,7 @@ export type ComponentCallback = (
 function component(
     description: string | ComponentFactory,
     tested: ComponentFactory,
-    callback?: ComponentCallback,
+    callback?: ComponentCallback | string,
     tester?: jest.It,
 ) {
     if (!tested) {
@@ -29,7 +29,9 @@ function component(
     tester = tester || it;
     tester(description as string, () => {
         const wrapper = toEnzymeWrapper(tested, callback ? mount : render);
-        if (callback) {
+        if (typeof callback === 'string') {
+            matchesSnapshot(wrapper.find(callback));
+        } else if (typeof callback === 'function') {
             callback(wrapper, matchesSnapshot);
         } else {
             matchesSnapshot(wrapper);

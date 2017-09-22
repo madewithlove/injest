@@ -1,18 +1,18 @@
 {
-  "include": ["src"],
-  "exclude": ["src/__dummies__", "src/**/*.test.*"],
-  "compilerOptions": {
-    "rootDir": "./src",
-    "outDir": "./dist",
-    "target": "esnext",
-    "module": "commonjs",
-    "moduleResolution": "node",
-    "allowSyntheticDefaultImports": false,
-    "declaration": true,
-    "jsx": "react",
-    "noImplicitAny": false,
-    "pretty": true,
-    "removeComments": true,
-    "sourceMap": true
-  }
+    "include": ["src"],
+    "exclude": ["src/__dummies__", "src/**/*.test.*"],
+    "compilerOptions": {
+        "rootDir": "./src",
+        "outDir": "./dist",
+        "target": "esnext",
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "allowSyntheticDefaultImports": false,
+        "declaration": true,
+        "jsx": "react",
+        "noImplicitAny": false,
+        "pretty": true,
+        "removeComments": true,
+        "sourceMap": true
+    }
 }

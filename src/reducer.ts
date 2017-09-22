@@ -28,10 +28,12 @@ function reducer(
     state: any,
     dispatcher?: Dispatcher,
     expected?: any,
+    tester?: jest.It,
 ): void {
     // If we passed a callback, provide the wrapper to it
     if (typeof dispatcher === 'function') {
-        it(description, () => {
+        tester = tester || it;
+        tester(description, () => {
             dispatcher((action: AnyAction, ...args) => {
                 expect(tested(state, action, ...args)).toMatchSnapshot();
             });

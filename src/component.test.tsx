@@ -3,7 +3,15 @@ import component from './component';
 import DummyComponent from './__dummies__/DummyComponent';
 
 component('can create snapshots easily', <DummyComponent text="bar" />);
+
 component("can accept a component factory if you're lazy", DummyComponent);
+
+component(
+    'can snapshot part of component',
+    <DummyComponent text="bar" />,
+    '.some-div',
+);
+
 component(
     'provides access to the Enzyme wrapper if need be',
     <DummyComponent text="bar" />,
@@ -16,14 +24,3 @@ component(
         snapshot(wrapper);
     },
 );
-
-let foobar = true;
-component.skip(
-    'can set Jest options through modifiers',
-    <DummyComponent text="bar" />,
-    () => {
-        foobar = false;
-    },
-);
-
-expect(foobar).toBe(true);
