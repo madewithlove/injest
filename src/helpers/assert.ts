@@ -1,14 +1,16 @@
-export function assert(result: any, expected?: any) {
-    result = result && result.toJS ? result.toJS() : result;
+export function unwrap(object: object) {
+    return object && object.toJS ? object.toJS() : object;
+}
 
+export function assert(result: any, expected?: any) {
     if (typeof expected !== 'undefined') {
-        expect(result).toEqual(expected);
+        expect(unwrap(result)).toEqual(unwrap(expected));
     } else {
         expect(result).toMatchSnapshot();
     }
 }
 
-export default function describeAssertion(
+export function describeAssertion(
     description: string,
     result: any,
     expected?: any,

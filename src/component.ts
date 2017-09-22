@@ -1,6 +1,6 @@
 import { mount, render } from 'enzyme';
 import matchesSnapshot from './helpers/matchesSnapshot';
-import toEnzymeWrapper from './helpers/toEnzymeWrapper';
+import toEnzymeWrapper, { EnzymeWrapper } from './helpers/toEnzymeWrapper';
 import { ComponentClass, ReactElement, StatelessComponent } from 'react';
 import withJestOptions, { JestOptions } from './helpers/withJestOptions';
 
@@ -10,7 +10,7 @@ export type ComponentFactory =
     | ComponentClass;
 
 export type ComponentCallback = (
-    wrapper: any,
+    wrapper: EnzymeWrapper,
     matchesSnapshot: Function,
 ) => void;
 

@@ -1,3 +1,3 @@
-export default (state = 0, { type }) => {
-    return type === 'INCREMENT' ? ++state : --state;
+export default (state = 0, action = {}) => {
+    return action.type === 'INCREMENT' ? ++state : --state;
 };

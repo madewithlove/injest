@@ -30,7 +30,9 @@ const countReducer = reducerTester(someReducer, initialState);
 
 countReducer('which can then be used as such', { type: 'INCREMENT' });
 countReducer('or as such', { type: 'INCREMENT' }, 1);
-countReducer('or even as such', wrapper => {
-    wrapper({ type: 'INCREMENT' });
-    wrapper({ type: 'INCREMENT' }, 1);
-});
+
+// Or without a default initial state
+const otherCountReducer = reducerTester(someReducer);
+
+otherCountReducer('which can then be used as such', 1, { type: 'INCREMENT' });
+otherCountReducer('or as such', 2, { type: 'INCREMENT' }, 3);

@@ -1,32 +1,52 @@
 import { AnyAction, Reducer } from 'redux';
-import assert, { default as describeAssertion } from './helpers/assert';
+import { describeAssertion } from './helpers/assert';
 import withJestOptions from './helpers/withJestOptions';
 
-export type Dispatcher = AnyAction | ReducerCallback | null;
+export type Dispatcher = AnyAction | null;
 
-export type ReducerCallback = (
-    wrapper: (action: AnyAction, ...other: any[]) => any,
+export type StatelessReducerCallback = (
+    wrapper: (
+        description: string,
+        state: any,
+        action: AnyAction,
+        ...other: any[]
+    ) => any,
 ) => void;
 
-export type ReducerWrapper = (
+export type StatelessReducerWrapper = (
     description: string,
-    dispatcher: Dispatcher,
+    state?: any,
+    dispatcher?: Dispatcher | StatelessReducerCallback,
     expected?: any,
 ) => void;
 
-export function reducerTester(
-    tested: Reducer<any>,
-    state: any,
-): ReducerWrapper {
-    return (newDescription, dispatcher, expected) =>
+export type StatefulReducerCallback = (
+    wrapper: (action: AnyAction, ...other: any[]) => any,
+) => void;
+
+export type StatefulReducerWrapper = (
+    description: string,
+    dispatcher: Dispatcher | StatefulReducerCallback,
+    expected?: any,
+) => void;
+
+export function reducerTester(tested: Reducer<any>, state?: any) {
+    const stateful = (newDescription, dispatcher, expected) =>
         reducer(newDescription, tested, state, dispatcher, expected);
+
+    const stateless = (newDescription, state, dispatcher, expected) =>
+        reducer(newDescription, tested, state, dispatcher, expected);
+
+    return typeof state === 'undefined'
+        ? stateless as StatelessReducerWrapper
+        : stateful as StatefulReducerWrapper;
 }
 
 function reducer(
     description: string,
     tested: Reducer<any>,
     state: any,
-    dispatcher?: Dispatcher,
+    dispatcher?: Dispatcher | StatefulReducerCallback,
     expected?: any,
     tester?: jest.It,
 ): void {

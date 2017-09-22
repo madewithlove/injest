@@ -8,10 +8,6 @@ exports[`can do multiple of these for a given reducer 3`] = `-1`;
 
 exports[`can snapshot the result of an action 1`] = `1`;
 
-exports[`or even as such 1`] = `1`;
-
-exports[`or even as such 2`] = `1`;
-
-exports[`or even as such 3`] = `-1`;
-
 exports[`which can then be used as such 1`] = `1`;
+
+exports[`which can then be used as such 2`] = `2`;
