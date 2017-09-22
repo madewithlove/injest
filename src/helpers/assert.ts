@@ -1,4 +1,6 @@
-export function unwrap(object: object) {
+export type PossiblyWrappedObject = { toJS?: () => object };
+
+export function unwrap(object: PossiblyWrappedObject) {
     return object && object.toJS ? object.toJS() : object;
 }
 
