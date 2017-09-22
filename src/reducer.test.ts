@@ -1,4 +1,4 @@
-import reducer, {reducerTester} from './reducer';
+import reducer, { reducerTester } from './reducer';
 import someReducer from './__dummies__/dummyReducer';
 
 const initialState = 0;

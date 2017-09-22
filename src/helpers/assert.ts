@@ -1,4 +1,6 @@
 export function assert(result: any, expected?: any) {
+    result = result && result.toJS ? result.toJS() : result;
+
     if (typeof expected !== 'undefined') {
         expect(result).toEqual(expected);
     } else {
