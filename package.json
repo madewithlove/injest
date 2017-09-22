@@ -18,11 +18,11 @@
     "email": "heroes@madewithlove.be"
   },
   "dependencies": {
-    "@types/enzyme": "^2.8.7",
+    "@types/enzyme": "^2.8.8",
     "@types/jest": "^20.0.8",
     "enzyme": "^2.9.1",
-    "enzyme-to-json": "^1.6.0",
-    "jest-enzyme": "^3.8.2"
+    "enzyme-to-json": "^2.0.0",
+    "jest-enzyme": "^3.8.3"
   },
   "devDependencies": {
     "jest": "^21.1.0",

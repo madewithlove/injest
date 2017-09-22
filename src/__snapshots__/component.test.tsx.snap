@@ -26,6 +26,14 @@ exports[`can create snapshots easily 1`] = `
 </div>
 `;
 
+exports[`can snapshot part of component 1`] = `
+<div
+  className="some-div"
+>
+  hello
+</div>
+`;
+
 exports[`provides access to the Enzyme wrapper if need be 1`] = `
 <div
   className="some-div"
