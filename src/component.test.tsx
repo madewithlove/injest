@@ -1,6 +1,6 @@
 import * as React from 'react';
-import component from './component';
 import DummyComponent from './__dummies__/DummyComponent';
+import component from './component';
 
 component('can create snapshots easily', <DummyComponent text="bar" />);
 
@@ -24,3 +24,7 @@ component(
         snapshot(wrapper);
     },
 );
+
+it('can use helper as snapshot function', () => {
+    component(<DummyComponent text="snap" />);
+});

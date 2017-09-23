@@ -16,7 +16,7 @@ export type ComponentCallback = (
 
 function component(
     description: string | ComponentFactory,
-    tested: ComponentFactory,
+    tested?: ComponentFactory,
     callback?: ComponentCallback | string,
     tester?: jest.It,
 ) {

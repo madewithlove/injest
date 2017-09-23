@@ -6,6 +6,7 @@ export type EnzymeWrapper =
     | Cheerio
     | ReactWrapper<any, any>
     | ShallowWrapper<any, any>;
+
 export type EnzymeWrapperFactory = (
     element: ReactElement<any>,
     options?: any,
