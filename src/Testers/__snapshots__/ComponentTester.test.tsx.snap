@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`can access callback for advanced operations 1`] = `
+<div
+  className="some-div"
+>
+  hello
+</div>
+`;
+
+exports[`can access callback for advanced operations 2`] = `
+<div
+  className="some-div"
+>
+  hello
+</div>
+`;
+
+exports[`can test components 1`] = `
+<div>
+  <div
+    class="some-div"
+  >
+    hello
+  </div>
+  <button>
+    foobar
+  </button>
+</div>
+`;
