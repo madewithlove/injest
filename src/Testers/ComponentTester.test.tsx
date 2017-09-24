@@ -10,13 +10,13 @@ new ComponentTester()
 new ComponentTester()
     .setDescription('can access callback for advanced operations')
     .setComponent(<DummyComponent />)
-    .then((wrapper, snapshot) => {
+    .run((wrapper, snapshot) => {
         snapshot(wrapper.find('.some-div'));
     });
 
 new ComponentTester()
     .setDescription('can access callback for advanced operations')
     .setComponent(<DummyComponent text="foo" />)
-    .then((wrapper, snapshot) => {
+    .run((wrapper, snapshot) => {
         snapshot(wrapper.find('.some-div'));
     });

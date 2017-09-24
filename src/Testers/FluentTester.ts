@@ -2,6 +2,8 @@ import { ComponentFactory } from '../component';
 import { mount, render } from 'enzyme';
 import matchesSnapshot from '../helpers/matchesSnapshot';
 import toJson from 'enzyme-to-json';
+import toEnzymeWrapper, { EnzymeWrapper } from '../helpers/toEnzymeWrapper';
+import { call } from 'redux-saga/effects';
 
 export enum TestType {
     Any,
@@ -39,8 +41,19 @@ export default class FluentTester {
      */
     expected?: any;
 
+    /**
+     * A callback to run the tests with
+     */
+    callback: Function;
+
     setDescription(description: string) {
         this.description = description;
+
+        return this;
+    }
+
+    setTester(tester: jest.It) {
+        this.tester = tester || it;
 
         return this;
     }
@@ -58,13 +71,26 @@ export default class FluentTester {
         return this;
     }
 
+    setCallback(callback: Function) {
+        this.callback = callback;
+
+        return this;
+    }
+
+    getProcessedValue() {
+        return this.middlewares.reduce(
+            (value, middleware) => middleware(value),
+            this.tested,
+        );
+    }
+
     /**
      * Get the tested value in a workable form for callbacks
      */
-    getWorkableValue(): any {
+    getWorkableValue(): EnzymeWrapper | any {
         switch (this.type) {
             case TestType.Component:
-                return mount(this.tested);
+                return toEnzymeWrapper(this.tested, mount);
 
             default:
                 return this.tested;
@@ -77,7 +103,7 @@ export default class FluentTester {
     getSerializedValue(): string | object {
         switch (this.type) {
             case TestType.Component:
-                return toJson(render(this.tested));
+                return toJson(toEnzymeWrapper(this.tested, render));
 
             default:
                 return this.tested;
@@ -88,21 +114,17 @@ export default class FluentTester {
      * Run the tests
      */
     run() {
-        this.tester(this.description, () => {
-            if (typeof this.expected !== 'undefined') {
+        const value = this.getProcessedValue();
+        const actions = () => {
+            if (this.callback) {
+                this.callback(value, matchesSnapshot);
+            } else if (typeof this.expected !== 'undefined') {
                 expect(this.tested).toBe(this.expected);
             } else {
-                expect(this.getSerializedValue()).toMatchSnapshot();
+                expect(value).toMatchSnapshot();
             }
-        });
-    }
+        };
 
-    /**
-     * Run multiple tests with the given context
-     */
-    then(callback: Function) {
-        this.tester(this.description, () => {
-            callback(this.getWorkableValue(), matchesSnapshot);
-        });
+        this.description ? this.tester(this.description, actions) : actions();
     }
 }

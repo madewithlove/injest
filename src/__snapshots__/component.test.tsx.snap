@@ -28,27 +28,23 @@ exports[`can create snapshots easily 1`] = `
 
 exports[`can snapshot part of component 1`] = `
 <div
-  className="some-div"
+  class="some-div"
 >
   hello
 </div>
 `;
 
 exports[`can use helper as snapshot function 1`] = `
-<DummyComponent
-  text="snap"
->
-  <div>
-    <div
-      className="some-div"
-    >
-      hello
-    </div>
-    <button>
-      snap
-    </button>
+<div>
+  <div
+    class="some-div"
+  >
+    hello
   </div>
-</DummyComponent>
+  <button>
+    snap
+  </button>
+</div>
 `;
 
 exports[`provides access to the Enzyme wrapper if need be 1`] = `
