@@ -1,4 +1,4 @@
-import {component as assert} from '../assertions';
+import { component as assert } from "../assertions";
 
 /**
  * Test and snapshot a component

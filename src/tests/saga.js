@@ -1,4 +1,4 @@
-import {saga as assert} from '../assertions';
+import { saga as assert } from "../assertions";
 
 /**
  * Test and snapshot a saga

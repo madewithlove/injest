@@ -1,5 +1,5 @@
-import {fromJS} from 'immutable';
-import assert from './assert';
+import { fromJS } from "immutable";
+import assert from "./assert";
 
 /**
  * Assert that a reducer equals X

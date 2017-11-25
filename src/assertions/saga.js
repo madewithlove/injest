@@ -6,7 +6,7 @@ export default (actual, effects) => {
 
     // If we provided specific results to test against
     // use those instead of a snapshot
-    if (typeof effects !== 'undefined') {
+    if (typeof effects !== "undefined") {
         let next = actual.next();
 
         return effects.forEach(effect => {

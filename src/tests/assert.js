@@ -1,4 +1,4 @@
-import {assert} from '../assertions';
+import { assert } from "../assertions";
 
 /**
  * Test and snapshot something

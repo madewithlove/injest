@@ -1,11 +1,11 @@
-import React, {Component} from 'react';
-import {component as assert} from '../../dist/assertions';
+import React, { Component } from "react";
+import { component as assert } from "../../dist/assertions";
 
 class RealComponent extends Component {
-    state = {text: 'foo'};
+    state = { text: "foo" };
 
     onClick() {
-        this.setState({text: 'bar'})
+        this.setState({ text: "bar" });
     }
 
     render() {
@@ -13,8 +13,8 @@ class RealComponent extends Component {
     }
 }
 
-test('can assert stuff about component', () => {
-    const {tree, actual} = assert(<RealComponent />);
+test("can assert stuff about component", () => {
+    const { tree, actual } = assert(<RealComponent />);
 
     tree.props.onClick();
     assert(actual);

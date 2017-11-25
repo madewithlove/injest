@@ -26,9 +26,8 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.11.1",
     "babel-preset-stage-0": "^6.5.0",
-    "eslint": "^3.5.0",
-    "eslint-config-madewithlove": "^4.0.1",
     "jest": "^21.2.1",
+    "prettier": "^1.8.2",
     "react": "^16.1.1"
   },
   "peerDependencies": {
@@ -41,18 +40,11 @@
     "prepublish": "BABEL_ENV=production npm run build",
     "postversion": "git push; git push --tags; npm publish",
     "test": "jest",
-    "lint": "eslint src"
+    "lint": "prettier '{src,tests}/**/*.{js,jsx}' --write"
   },
-  "eslintConfig": {
-    "extends": "madewithlove",
-    "rules": {
-      "no-magic-numbers": 0,
-      "valid-jsdoc": 0
-    },
-    "globals": {
-      "expect": false,
-      "test": false
-    }
+  "prettier": {
+    "tabWidth": 4,
+    "trailingComma": "all"
   },
   "jest": {
     "roots": [
