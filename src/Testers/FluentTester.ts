@@ -7,6 +7,7 @@ import { call } from 'redux-saga/effects';
 
 export enum TestType {
     Any,
+    Reducer,
     Component,
 }
 
@@ -116,7 +117,7 @@ export default class FluentTester {
     run() {
         const value = this.getProcessedValue();
         const actions = () => {
-            if (this.callback) {
+            if (this.callback && typeof this.callback === 'function') {
                 this.callback(value, matchesSnapshot);
             } else if (typeof this.expected !== 'undefined') {
                 expect(this.tested).toBe(this.expected);

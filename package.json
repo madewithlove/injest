@@ -50,5 +50,10 @@
         },
         "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
         "moduleFileExtensions": ["ts", "tsx", "js", "json"]
+    },
+    "prettier": {
+        "tabWidth": 4,
+        "singleQuote": true,
+        "trailingComma": "all"
     }
 }

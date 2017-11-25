@@ -1,13 +1,13 @@
 import FluentTester, { TestType } from './FluentTester';
 import toJson from 'enzyme-to-json';
 import { ComponentFactory } from '../component';
-import { mount, render } from 'enzyme';
-import toEnzymeWrapper from '../helpers/toEnzymeWrapper';
+import { mount, ReactWrapper, render } from 'enzyme';
+import toEnzymeWrapper, { EnzymeWrapper } from '../helpers/toEnzymeWrapper';
 
 export default class ComponentTester extends FluentTester {
-    middlewares = [this.wrapComponent.bind(this)];
+    middlewares = [this.toEnzymeWrapper.bind(this)];
 
-    wrapComponent(component) {
+    toEnzymeWrapper(component): EnzymeWrapper {
         return toEnzymeWrapper(component, this.callback ? mount : render);
     }
 
@@ -22,9 +22,11 @@ export default class ComponentTester extends FluentTester {
     }
 
     run() {
-        this.middlewares.push(
+        this.middlewares = [
+            this.toEnzymeWrapper.bind(this),
+            ...this.middlewares,
             component => (this.callback ? component : toJson(component)),
-        );
+        ];
 
         super.run();
     }

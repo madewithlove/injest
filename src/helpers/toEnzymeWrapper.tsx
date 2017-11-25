@@ -2,10 +2,7 @@ import { mount, ReactWrapper, ShallowWrapper } from 'enzyme';
 import * as React from 'react';
 import { ReactElement } from 'react';
 
-export type EnzymeWrapper =
-    | Cheerio
-    | ReactWrapper<any, any>
-    | ShallowWrapper<any, any>;
+export type EnzymeWrapper = Cheerio | ReactWrapper<any, any>;
 
 export type EnzymeWrapperFactory = (
     element: ReactElement<any>,

@@ -1,6 +1,9 @@
 import { AnyAction, Reducer } from 'redux';
 import { describeAssertion } from './helpers/assert';
 import withJestOptions from './helpers/withJestOptions';
+import FluentTester from './Testers/FluentTester';
+import ReducerTester from './Testers/ReducerTester';
+import countArguments from './helpers/countArguments';
 
 export type Dispatcher = AnyAction | null;
 
@@ -48,8 +51,29 @@ function reducer(
     state: any,
     dispatcher?: Dispatcher | StatefulReducerCallback,
     expected?: any,
-    tester?: jest.It,
+    it?: jest.It,
 ): void {
+    let tester = new ReducerTester().setTester(it);
+
+    switch (true) {
+        case typeof description === 'string':
+            tester = tester.setDescription(description);
+
+        case typeof dispatcher === 'function':
+            tester = tester.setCallback(dispatcher as Function);
+
+        case typeof dispatcher === 'object':
+            tester = tester.setAction(dispatcher as AnyAction);
+
+        case typeof expected !== 'undefined':
+            tester = tester.setExpected(expected);
+    }
+
+    return tester
+        .setReducer(tested)
+        .setState(state)
+        .run();
+
     // If we passed a callback, provide the wrapper to it
     if (typeof dispatcher === 'function') {
         tester = tester || it;
