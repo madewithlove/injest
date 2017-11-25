@@ -1,1 +1,1 @@
-module.exports = require('./dist/assertions');
+module.exports = require("./dist/assertions");
