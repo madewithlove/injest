@@ -1,12 +1,8 @@
 language: node_js
 node_js:
-  - 4
-  - 5
-  - 6
-
-before_install:
-  - npm install npm@3 -g
+  - 8
+  - 9
 
 script:
-  - npm test
-  - npm run lint -- -l
+  - yarn test
+  - yarn lint -l
