@@ -2,13 +2,17 @@
     "name": "injest",
     "description": "Makes your Jest tests more digestible",
     "license": "MIT",
-    "version": "0.1.3",
+    "version": "0.1.4",
     "main": "dist/index.js",
     "repository": {
         "type": "git",
         "url": "git+ssh://git@github.com:madewithlove/injest.git"
     },
-    "keywords": ["jest", "test", "utilities"],
+    "keywords": [
+        "jest",
+        "test",
+        "utilities"
+    ],
     "author": {
         "name": "Madewithlove",
         "email": "heroes@madewithlove.be"
@@ -36,14 +40,15 @@
         "prepublish": "BABEL_ENV=production npm run build",
         "postversion": "git push; git push --tags; npm publish",
         "test": "jest",
-        "lint":
-            "prettier '{{src,tests}/**/*.{js,jsx},./*.{json,md,js}}' --write"
+        "lint": "prettier '{{src,tests}/**/*.{js,jsx},./*.{json,md,js}}' --write"
     },
     "prettier": {
         "tabWidth": 4,
         "trailingComma": "all"
     },
     "jest": {
-        "roots": ["tests"]
+        "roots": [
+            "tests"
+        ]
     }
 }
