@@ -1,9 +1,9 @@
 import * as React from "react";
+import toEnzymeWrapper from "../helpers/toEnzymeWrapper";
 import matchesSnapshot from "./matchesSnapshot";
 import DummyComponent from "../__dummies__/DummyComponent";
-import { mount } from "enzyme";
 
 it("can snapshot a wrapper", () => {
-    const wrapper = mount(<DummyComponent />);
+    const wrapper = toEnzymeWrapper(<DummyComponent />);
     matchesSnapshot(wrapper);
 });

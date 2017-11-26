@@ -1,3 +1,4 @@
+import { component } from ".";
 import FluentTester, { TestType } from "./FluentTester";
 import toJson from "enzyme-to-json";
 import { ComponentFactory } from "../component";
@@ -5,8 +6,6 @@ import { mount, ReactWrapper, render } from "enzyme";
 import toEnzymeWrapper, { EnzymeWrapper } from "../helpers/toEnzymeWrapper";
 
 export default class ComponentTester extends FluentTester {
-    middlewares = [this.toEnzymeWrapper.bind(this)];
-
     toEnzymeWrapper(component): EnzymeWrapper {
         return toEnzymeWrapper(component, this.callback ? mount : render);
     }

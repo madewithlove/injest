@@ -14,22 +14,23 @@
         "email": "heroes@madewithlove.be"
     },
     "dependencies": {
-        "@types/enzyme": "^2.8.8",
-        "@types/jest": "^20.0.8",
-        "enzyme": "^2.9.1",
-        "enzyme-to-json": "^2.0.0",
-        "jest-enzyme": "^3.8.3"
+        "@types/enzyme": "^3.1.5",
+        "@types/jest": "^21.1.8",
+        "enzyme": "^3.2.0",
+        "enzyme-to-json": "^3.2.2",
+        "jest-enzyme": "^4.0.1"
     },
     "devDependencies": {
+        "enzyme-adapter-react-16": "^1.1.0",
         "immutable": "^3.8.1",
         "jest": "^21.1.0",
         "prettier": "^1.7.0",
-        "react": "^15.6.1",
-        "react-dom": "^15.6.1",
+        "react": "^16.1.1",
+        "react-dom": "^16.1.1",
         "react-redux": "^5.0.5",
-        "react-test-renderer": "^15.6.1",
+        "react-test-renderer": "^16.1.1",
         "redux": "^3.7.2",
-        "redux-saga": "^0.15.6",
+        "redux-saga": "^0.16.0",
         "ts-jest": "^21.0.1",
         "typescript": "^2.5.2"
     },
@@ -41,16 +42,15 @@
         "build:watch": "npm run build -- --watch",
         "postversion": "git push; git push --tags; npm publish",
         "test": "jest",
-        "lint":
-            "prettier '{{src,tests}/**/*.{ts,tsx},./*.{json,md,js}}' --write"
+        "lint": "prettier '{src/**/*.{ts,tsx},./*.{json,md,js}}' --write"
     },
     "jest": {
-        "transform": {
-            ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
-        },
-        "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
         "moduleFileExtensions": ["ts", "tsx", "js", "json"],
-        "roots": ["tests"]
+        "setupFiles": ["./src/__dummies__/react.ts"],
+        "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$",
+        "transform": {
+            "^.+\\.tsx?$": "ts-jest"
+        }
     },
     "prettier": {
         "tabWidth": 4,

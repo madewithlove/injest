@@ -1,18 +1,28 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`can access callback for advanced operations 1`] = `
-<div
-  className="some-div"
->
-  hello
+<div>
+  <div
+    class="some-div"
+  >
+    hello
+  </div>
+  <button>
+    foobar
+  </button>
 </div>
 `;
 
 exports[`can access callback for advanced operations 2`] = `
-<div
-  className="some-div"
->
-  hello
+<div>
+  <div
+    class="some-div"
+  >
+    hello
+  </div>
+  <button>
+    foo
+  </button>
 </div>
 `;
 

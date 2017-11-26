@@ -23,12 +23,12 @@ export default class ReducerTester extends FluentTester {
     }
 
     run(): any {
-        this.middlewares.push(
-            reducer =>
-                this.state && this.action
-                    ? reducer(this.state, this.action)
-                    : reducer,
-        );
+        this.middlewares.push(reducer => {
+            return typeof this.state !== "undefined" &&
+                typeof this.action !== "undefined"
+                ? reducer(this.state, this.action)
+                : reducer;
+        });
 
         return super.run();
     }

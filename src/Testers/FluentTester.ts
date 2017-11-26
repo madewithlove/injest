@@ -115,12 +115,13 @@ export default class FluentTester {
      * Run the tests
      */
     run() {
-        const value = this.getProcessedValue();
         const actions = () => {
+            const value = this.getProcessedValue();
+
             if (this.callback && typeof this.callback === "function") {
-                this.callback(value, matchesSnapshot);
+                this.callback(this.getWorkableValue(), matchesSnapshot);
             } else if (typeof this.expected !== "undefined") {
-                expect(this.tested).toBe(this.expected);
+                expect(value).toBe(this.expected);
             } else {
                 expect(value).toMatchSnapshot();
             }

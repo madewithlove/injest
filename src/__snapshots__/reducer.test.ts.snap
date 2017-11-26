@@ -1,11 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`can do multiple of these for a given reducer 1`] = `1`;
-
-exports[`can do multiple of these for a given reducer 2`] = `1`;
-
-exports[`can do multiple of these for a given reducer 3`] = `-1`;
-
 exports[`can snapshot the result of an action 1`] = `1`;
 
 exports[`which can then be used as such 1`] = `1`;
