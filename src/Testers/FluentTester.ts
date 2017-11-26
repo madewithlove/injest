@@ -1,9 +1,9 @@
-import { ComponentFactory } from '../component';
-import { mount, render } from 'enzyme';
-import matchesSnapshot from '../helpers/matchesSnapshot';
-import toJson from 'enzyme-to-json';
-import toEnzymeWrapper, { EnzymeWrapper } from '../helpers/toEnzymeWrapper';
-import { call } from 'redux-saga/effects';
+import { ComponentFactory } from "../component";
+import { mount, render } from "enzyme";
+import matchesSnapshot from "../helpers/matchesSnapshot";
+import toJson from "enzyme-to-json";
+import toEnzymeWrapper, { EnzymeWrapper } from "../helpers/toEnzymeWrapper";
+import { call } from "redux-saga/effects";
 
 export enum TestType {
     Any,
@@ -117,9 +117,9 @@ export default class FluentTester {
     run() {
         const value = this.getProcessedValue();
         const actions = () => {
-            if (this.callback && typeof this.callback === 'function') {
+            if (this.callback && typeof this.callback === "function") {
                 this.callback(value, matchesSnapshot);
-            } else if (typeof this.expected !== 'undefined') {
+            } else if (typeof this.expected !== "undefined") {
                 expect(this.tested).toBe(this.expected);
             } else {
                 expect(value).toMatchSnapshot();

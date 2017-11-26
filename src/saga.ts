@@ -1,5 +1,5 @@
-import { AnyAction } from 'redux';
-import { call } from 'redux-saga/effects';
+import { AnyAction } from "redux";
+import { call } from "redux-saga/effects";
 
 export type SagaCallback = ((wrapper: SagaWrapper) => void) | any[];
 
@@ -41,7 +41,7 @@ export default function saga(
     } while (!result.done);
 
     // If we passed a callback function, provide the wrapper to it
-    if (typeof callback === 'function') {
+    if (typeof callback === "function") {
         callback(wrapper);
 
         return wrapper.steps.forEach(({ description, expected }, key) => {

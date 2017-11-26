@@ -1,6 +1,6 @@
-import { mount, ReactWrapper, ShallowWrapper } from 'enzyme';
-import * as React from 'react';
-import { ReactElement } from 'react';
+import { mount, ReactWrapper, ShallowWrapper } from "enzyme";
+import * as React from "react";
+import { ReactElement } from "react";
 
 export type EnzymeWrapper = Cheerio | ReactWrapper<any, any>;
 
@@ -14,7 +14,7 @@ export default function toEnzymeWrapper(
     wrapper: EnzymeWrapperFactory = mount,
 ) {
     tested = tested.WrappedComponent || tested;
-    if (typeof tested === 'function') {
+    if (typeof tested === "function") {
         tested = React.createElement(tested);
     }
 

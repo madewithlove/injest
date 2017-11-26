@@ -1,9 +1,9 @@
-import { AnyAction, Reducer } from 'redux';
-import { describeAssertion } from './helpers/assert';
-import withJestOptions from './helpers/withJestOptions';
-import FluentTester from './Testers/FluentTester';
-import ReducerTester from './Testers/ReducerTester';
-import countArguments from './helpers/countArguments';
+import { AnyAction, Reducer } from "redux";
+import { describeAssertion } from "./helpers/assert";
+import withJestOptions from "./helpers/withJestOptions";
+import FluentTester from "./Testers/FluentTester";
+import ReducerTester from "./Testers/ReducerTester";
+import countArguments from "./helpers/countArguments";
 
 export type Dispatcher = AnyAction | null;
 
@@ -40,9 +40,9 @@ export function reducerTester(tested: Reducer<any>, state?: any) {
     const stateless = (newDescription, state, dispatcher, expected) =>
         reducer(newDescription, tested, state, dispatcher, expected);
 
-    return typeof state === 'undefined'
-        ? stateless as StatelessReducerWrapper
-        : stateful as StatefulReducerWrapper;
+    return typeof state === "undefined"
+        ? (stateless as StatelessReducerWrapper)
+        : (stateful as StatefulReducerWrapper);
 }
 
 function reducer(
@@ -56,16 +56,16 @@ function reducer(
     let tester = new ReducerTester().setTester(it);
 
     switch (true) {
-        case typeof description === 'string':
+        case typeof description === "string":
             tester = tester.setDescription(description);
 
-        case typeof dispatcher === 'function':
+        case typeof dispatcher === "function":
             tester = tester.setCallback(dispatcher as Function);
 
-        case typeof dispatcher === 'object':
+        case typeof dispatcher === "object":
             tester = tester.setAction(dispatcher as AnyAction);
 
-        case typeof expected !== 'undefined':
+        case typeof expected !== "undefined":
             tester = tester.setExpected(expected);
     }
 
@@ -75,7 +75,7 @@ function reducer(
         .run();
 
     // If we passed a callback, provide the wrapper to it
-    if (typeof dispatcher === 'function') {
+    if (typeof dispatcher === "function") {
         tester = tester || it;
         tester(description, () => {
             dispatcher((action: AnyAction, ...args) => {

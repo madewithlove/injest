@@ -1,15 +1,15 @@
-import * as React from 'react';
-import { connect } from 'react-redux';
-import toEnzymeWrapper from './toEnzymeWrapper';
+import * as React from "react";
+import { connect } from "react-redux";
+import toEnzymeWrapper from "./toEnzymeWrapper";
 
 const App = ({ text }) => <p>{text}</p>;
 
-it('can wrap normal element', () => {
+it("can wrap normal element", () => {
     const wrapper = toEnzymeWrapper(<App text="hello" />);
-    expect(wrapper.html()).toBe('<p>hello</p>');
+    expect(wrapper.html()).toBe("<p>hello</p>");
 });
 
-it('can wrap element function', () => {
+it("can wrap element function", () => {
     const wrapper = toEnzymeWrapper(App);
-    expect(wrapper.html()).toBe('<p></p>');
+    expect(wrapper.html()).toBe("<p></p>");
 });

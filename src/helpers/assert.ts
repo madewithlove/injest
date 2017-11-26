@@ -5,7 +5,7 @@ export function unwrap(object: PossiblyWrappedObject) {
 }
 
 export function assert(result: any, expected?: any) {
-    if (typeof expected !== 'undefined') {
+    if (typeof expected !== "undefined") {
         expect(unwrap(result)).toEqual(unwrap(expected));
     } else {
         expect(result).toMatchSnapshot();

@@ -1,5 +1,5 @@
-import FluentTester, { TestType } from './FluentTester';
-import { AnyAction, Reducer } from 'redux';
+import FluentTester, { TestType } from "./FluentTester";
+import { AnyAction, Reducer } from "redux";
 
 export default class ReducerTester extends FluentTester {
     state: any;

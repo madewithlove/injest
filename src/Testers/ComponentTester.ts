@@ -1,8 +1,8 @@
-import FluentTester, { TestType } from './FluentTester';
-import toJson from 'enzyme-to-json';
-import { ComponentFactory } from '../component';
-import { mount, ReactWrapper, render } from 'enzyme';
-import toEnzymeWrapper, { EnzymeWrapper } from '../helpers/toEnzymeWrapper';
+import FluentTester, { TestType } from "./FluentTester";
+import toJson from "enzyme-to-json";
+import { ComponentFactory } from "../component";
+import { mount, ReactWrapper, render } from "enzyme";
+import toEnzymeWrapper, { EnzymeWrapper } from "../helpers/toEnzymeWrapper";
 
 export default class ComponentTester extends FluentTester {
     middlewares = [this.toEnzymeWrapper.bind(this)];
